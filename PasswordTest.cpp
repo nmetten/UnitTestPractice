@@ -14,9 +14,16 @@ class PasswordTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor)
 };
 
-TEST(PasswordTest, single_letter_password)
+TEST(PasswordTest, no_leading_characters)
 {
 	Password my_password;
-	int actual = my_password.count_leading_characters("Z");
-	ASSERT_EQ(1, actual);
+	int actual = my_password.count_leading_characters("");
+	ASSERT_EQ(0, actual);
+}
+
+TEST(PasswordTest, two_repetitive_character)
+{
+	Password my_password;
+	int actual = my_password.count_leading_characters("aabcdefg");
+	ASSERT_EQ(2, actual);
 }
