@@ -55,3 +55,17 @@ TEST(PasswordTest, mixed_case)
 	bool actual = my_password.has_mixed_case("aAaAa");
 	ASSERT_EQ(true, actual);
 }
+
+TEST(PasswordTest, speical_case)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("aB1");
+	ASSERT_EQ(true, actual);
+}
+
+TEST(PasswordTest, special_case_2)
+{
+	Password my_password;
+	bool actual = my_password.has_mixed_case("Ab_~");
+	ASSERT_EQ(true, actual);
+}
